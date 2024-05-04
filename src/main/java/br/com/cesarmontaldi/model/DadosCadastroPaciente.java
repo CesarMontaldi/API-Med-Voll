@@ -7,10 +7,10 @@ import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
 
 public record DadosCadastroPaciente(
-        @NotBlank
+        @NotBlank(message = "{nome.obrigatorio}")
         String nome,
 
-        @NotBlank
+        @NotBlank(message = "{email.obrigatorio}")
         @Email
         String email,
 

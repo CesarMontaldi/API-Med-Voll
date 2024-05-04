@@ -1,18 +1,15 @@
 package br.com.cesarmontaldi.controller;
 
-import br.com.cesarmontaldi.model.DadosAtualizarMedico;
-import br.com.cesarmontaldi.model.DadosCadastroMedico;
-import br.com.cesarmontaldi.model.DadosListMedicos;
-import br.com.cesarmontaldi.model.Medico;
-import br.com.cesarmontaldi.repository.MedicoRepository;
+import br.com.cesarmontaldi.model.*;
 import br.com.cesarmontaldi.service.MedicoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 
 import java.util.List;
@@ -26,25 +23,47 @@ public class MedicoController {
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody @Valid DadosCadastroMedico dados) {
-        service.salvar(new Medico(dados));
+    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroMedico dados, UriComponentsBuilder uriBuilder) {
+        var medico = new Medico(dados);
+        service.salvar(medico);
+
+        var uri = uriBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(new DadosMedico(medico));
     }
+
+    @GetMapping("/{id}")
+    @Transactional
+    public ResponseEntity buscarMedico(@PathVariable Long id) {
+        Medico medico = service.getMedicoById(id);
+        if (medico.isAtivo()) {
+            return ResponseEntity.ok(new DadosMedico(medico));
+        }
+        return ResponseEntity.notFound().build();
+    }
+
     @GetMapping
-    public Page<DadosListMedicos> listar(Pageable paginacao) {
-        return service.findAllByAtivo(paginacao).map(DadosListMedicos::new);
+    public ResponseEntity<Page<DadosListMedicos>> listar(Pageable paginacao) {
+        var medicos = service.findAllByAtivo(paginacao).map(DadosListMedicos::new);
+
+        return ResponseEntity.ok(medicos);
     }
     @PutMapping
     @Transactional
-    public void atualizar(@RequestBody @Valid DadosAtualizarMedico dados) {
+    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizarMedico dados) {
         var medico = service.getMedicoById(dados.id());
         medico.atualizarInformacoes(dados);
+
+        return ResponseEntity.ok(new DadosMedico(medico));
     }
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void deletar(@PathVariable Long id) {
+    public ResponseEntity deletar(@PathVariable Long id) {
         var medico = service.getMedicoById(id);
         medico.excluir();
+
+        return ResponseEntity.noContent().build();
     }
-    
+
 }

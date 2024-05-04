@@ -8,3 +8,8 @@ API Rest da aplicação Med.Voll uma clinica médica.
 * Utilizar o Flyway como ferramenta de Migrations da API.
 * Realizar validações utilizando o Bean Validation.
 * Realizar paginação dos dados da API.
+* Padronizar os retornos dos controllers da API.
+* Utilizar os códigos HTTP corretamente.
+* Implementr mecanismo de autenticação na API.
+* Realizar o controle de acesso na API.
+* Utilizar Json Web Token para controlar o acesso na API.
