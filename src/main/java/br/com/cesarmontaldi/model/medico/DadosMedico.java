@@ -1,6 +1,7 @@
-package br.com.cesarmontaldi.model;
+package br.com.cesarmontaldi.model.medico;
 
 import br.com.cesarmontaldi.enums.Especialidade;
+import br.com.cesarmontaldi.model.endereco.Endereco;
 
 public record DadosMedico(Long ig, String nome, String email, String crm,  String telefone, Especialidade especialidade, Endereco endereco) {
 

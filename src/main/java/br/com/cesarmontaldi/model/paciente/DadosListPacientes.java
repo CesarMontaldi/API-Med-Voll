@@ -1,4 +1,4 @@
-package br.com.cesarmontaldi.model;
+package br.com.cesarmontaldi.model.paciente;
 
 public record DadosListPacientes(Long id, String nome, String cpf, String email) {
 

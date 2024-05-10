@@ -1,6 +1,6 @@
 package br.com.cesarmontaldi.repository;
 
-import br.com.cesarmontaldi.model.Medico;
+import br.com.cesarmontaldi.model.medico.Medico;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

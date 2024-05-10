@@ -1,4 +1,4 @@
-package br.com.cesarmontaldi.model;
+package br.com.cesarmontaldi.model.medico;
 
 import br.com.cesarmontaldi.enums.Especialidade;
 

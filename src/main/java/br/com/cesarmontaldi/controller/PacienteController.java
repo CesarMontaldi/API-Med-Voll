@@ -1,6 +1,7 @@
 package br.com.cesarmontaldi.controller;
 
-import br.com.cesarmontaldi.model.*;
+
+import br.com.cesarmontaldi.model.paciente.*;
 import br.com.cesarmontaldi.service.PacienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class PacienteController {
     @PostMapping
     @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroPaciente dados, UriComponentsBuilder uriBuilder) {
-        var paciente = new Paciente(dados);
+        Paciente paciente = new Paciente(dados);
         service.salvar(paciente);
 
         var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();

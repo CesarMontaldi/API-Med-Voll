@@ -1,5 +1,6 @@
-package br.com.cesarmontaldi.model;
+package br.com.cesarmontaldi.model.paciente;
 
+import br.com.cesarmontaldi.model.endereco.DadosEndereco;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

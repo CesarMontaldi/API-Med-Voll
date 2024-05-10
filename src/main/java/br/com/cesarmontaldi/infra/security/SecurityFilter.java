@@ -1,2 +1,4 @@
-package br.com.cesarmontaldi.infra.security;public class SecurityFilter {
+package br.com.cesarmontaldi.infra.security;
+
+public class SecurityFilter {
 }

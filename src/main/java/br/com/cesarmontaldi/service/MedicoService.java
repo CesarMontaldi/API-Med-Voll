@@ -1,7 +1,7 @@
 package br.com.cesarmontaldi.service;
 
-import br.com.cesarmontaldi.model.DadosAtualizarMedico;
-import br.com.cesarmontaldi.model.Medico;
+
+import br.com.cesarmontaldi.model.medico.Medico;
 import br.com.cesarmontaldi.repository.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -1,4 +1,4 @@
-package br.com.cesarmontaldi.model;
+package br.com.cesarmontaldi.model.endereco;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
