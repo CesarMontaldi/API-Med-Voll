@@ -1,11 +1,11 @@
-CREATE SEQUENCE pacientes_id_seq
+CREATE SEQUENCE IF NOT EXISTS pacientes_id_seq
     INCREMENT 1
-    START 1
+    START 4
     MINVALUE 1
     MAXVALUE 9223372036854775807
     CACHE 1;
 
-CREATE TABLE pacientes
+CREATE TABLE IF NOT EXISTS pacientes
 (
     id bigint NOT NULL DEFAULT nextval('pacientes_id_seq'::regclass),
     nome character varying(255),
@@ -19,5 +19,6 @@ CREATE TABLE pacientes
     logradouro character varying(255) COLLATE pg_catalog."default",
     numero character varying(255) COLLATE pg_catalog."default",
     uf character varying(255) COLLATE pg_catalog."default",
+    ativo boolean DEFAULT true,
     CONSTRAINT pacientes_pkey PRIMARY KEY (id)
 );

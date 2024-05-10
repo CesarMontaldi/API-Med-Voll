@@ -1,4 +1,4 @@
 package br.com.cesarmontaldi.infra.security;
 
-public record DadosTokenJWT(String tokenJwt) {
+public record DadosTokenJWT(String token) {
 }

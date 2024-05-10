@@ -4,6 +4,7 @@ import br.com.cesarmontaldi.model.usuario.Usuario;
 import br.com.cesarmontaldi.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,7 +14,7 @@ public class UsuarioService {
     private UsuarioRepository repository;
 
     @Autowired
-    private BCryptPasswordEncoder encoder;
+    private PasswordEncoder encoder;
 
     public Usuario salvar(Usuario usuario) {
         var senhaBCrypt = encoder.encode(usuario.getSenha());

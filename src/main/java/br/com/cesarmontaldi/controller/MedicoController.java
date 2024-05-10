@@ -1,6 +1,6 @@
 package br.com.cesarmontaldi.controller;
 
-import br.com.cesarmontaldi.model.*;
+
 import br.com.cesarmontaldi.model.medico.*;
 import br.com.cesarmontaldi.service.MedicoService;
 import jakarta.validation.Valid;
