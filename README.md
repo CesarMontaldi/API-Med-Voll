@@ -13,3 +13,9 @@ API Rest da aplicação Med.Voll uma clinica médica.
 * Implementr mecanismo de autenticação na API.
 * Realizar o controle de acesso na API.
 * Utilizar Json Web Token para controlar o acesso na API.
+* Isolar códigos de regras de negócio em uma aplicação.
+* Implementar princípios SOLID.
+* Documentar a API seguindo o padrão OpenAPI.
+* Escrever testes automatizados em uma aplicação com Spring Boot.
+* Realizar o build da aplicação com Spring Boot.
+* Utilização de variáveis de ambiente e preparar a aplicação para o deploy.
