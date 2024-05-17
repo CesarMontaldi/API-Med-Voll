@@ -3,6 +3,7 @@ package br.com.cesarmontaldi.controller;
 import br.com.cesarmontaldi.model.usuario.DadosUsuario;
 import br.com.cesarmontaldi.model.usuario.Usuario;
 import br.com.cesarmontaldi.service.UsuarioService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/usuarios")
+@SecurityRequirement(name = "bearer-key")
 public class UsuarioController {
 
     @Autowired
