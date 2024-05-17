@@ -7,13 +7,12 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/medicos")
@@ -65,6 +64,15 @@ public class MedicoController {
         medico.excluir();
 
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity ativarCadastroMedico(@PathVariable Long id) {
+        var medico = service.getMedicoById(id);
+        medico.ativarCadastro();
+
+        return ResponseEntity.ok().build();
     }
 
 }

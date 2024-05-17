@@ -1,5 +1,6 @@
 package br.com.cesarmontaldi.model.consulta;
 
+import br.com.cesarmontaldi.enums.Especialidade;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
 
@@ -13,5 +14,7 @@ public record DadosAgendamentoConsulta(
 
         @NotNull
         @Future
-        LocalDateTime data) {
+        LocalDateTime data,
+
+        Especialidade especialidade) {
 }

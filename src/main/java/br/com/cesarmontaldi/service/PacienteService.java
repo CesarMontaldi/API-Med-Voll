@@ -25,4 +25,12 @@ public class PacienteService {
     public Paciente getPacienteById(Long id) {
         return repository.getReferenceById(id);
     }
+
+    public boolean existsPacienteId(Long id) {
+        return repository.existsById(id);
+    }
+
+    public boolean pacienteAtivoById(Long idPaciente) {
+        return repository.findAtivoById(idPaciente);
+    }
 }
